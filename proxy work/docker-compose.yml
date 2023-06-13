@@ -1,0 +1,18 @@
+services:
+    reverseproxy:
+        image: reverseproxy
+        ports:
+            - 80:80
+        restart: always
+
+    nginx:
+        depends_on:
+            - reverseproxy
+        image: nginx:alpine
+        restart: always
+
+    apache:
+        depends_on:
+            - reverseproxy
+        image: httpd:alpine
+        restart: always
