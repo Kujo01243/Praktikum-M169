@@ -8,11 +8,11 @@ services:
     nginx:
         depends_on:
             - reverseproxy
-        image: nginx:alpine
+        image: server-nginx
         restart: always
 
     apache:
         depends_on:
             - reverseproxy
-        image: httpd:alpine
+        image: server-apache
         restart: always
