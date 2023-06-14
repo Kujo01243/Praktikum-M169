@@ -1,0 +1,48 @@
+services:
+
+    reverseproxy:
+        image: kujo01243/reverseproxy
+        container_name: reverseproxy
+        networks:
+            - m169_network
+        ports:
+            - 80:80
+        restart: always
+
+
+
+    prometheus:
+      image: prom/prometheus
+      container_name: prometheus
+      ports:
+        - 9090:9090
+      volumes:
+        - ./prometheus:/etc/prometheus
+      command:
+        - '--config.file=prometheus.yml'
+      depends_on:
+        - nginx
+        - apache
+      networks:
+        - m169_network
+      restart: always
+    nginx:
+        container_name: server-nginx
+        depends_on:
+            - reverseproxy
+        image: kujo01243/server-nginx
+        networks:
+            - m169_network
+        restart: always
+
+    apache:
+        container_name: server-apache
+        depends_on:
+            - reverseproxy
+        image: kujo01243/server-apache
+        networks:
+            - m169_network
+        restart: always
+networks:
+  m169_network:
+    name: m169_network
