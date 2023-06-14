@@ -7,9 +7,9 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus
     command:
-      - '--config.file=/root/praktikum/prometheus/prometheus'
+      - '--config.file=/root/praktikum/prometheus/prometheus/prometheus.yml'
     depends_on:
-      - 
+      - webserver1
       - webserver2
     networks:
       - m169_network
