@@ -1,6 +1,8 @@
 services:
     reverseproxy:
         image: kujo01243/reverseproxy
+        networks:
+            - m169_network
         ports:
             - 80:80
         restart: always
@@ -9,10 +11,17 @@ services:
         depends_on:
             - reverseproxy
         image: kujo01243/server-nginx
+        networks:
+            - m169_network
         restart: always
 
     apache:
         depends_on:
             - reverseproxy
         image: kujo01243/server-apache
+        networks:
+            - m169_network
         restart: always
+networks:
+  m169_network:
+    name: m169_network
