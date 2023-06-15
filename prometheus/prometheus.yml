@@ -4,4 +4,4 @@ global:
 scrape_configs:
   - job_name: 'myapp'
     static_configs:
-      - targets: ['server-nginx:80', 'server-nginx:80']
+      - targets: ['m169.theil.es:80', 'm169-2.theil.es:80']

@@ -1,14 +1,5 @@
 services:
 
-    reverseproxy:
-        image: kujo01243/reverseproxy
-        container_name: reverseproxy
-        networks:
-            - m169_network
-        ports:
-            - 80:80
-        restart: always
-
     prometheus:
         container_name: prometheus
         image: prom/prometheus
@@ -30,6 +21,19 @@ services:
 
 
 
+
+###################################################
+
+
+
+    reverseproxy:
+        image: kujo01243/reverseproxy
+        container_name: reverseproxy
+        networks:
+            - m169_network
+        ports:
+            - 80:80
+        restart: always
     nginx:
         container_name: server-nginx
         depends_on:
