@@ -3,6 +3,8 @@ services:
     prometheus:
         container_name: prometheus
         image: prom/prometheus
+        networks:
+            - m169_network
         volumes:
             - ./prometheus:/etc/prometheus
         command:
@@ -14,6 +16,8 @@ services:
     grafana:
         container_name: grafana
         image: grafana/grafana
+        networks:
+            - m169_network
         ports:
           - 3000:3000
         depends_on:
@@ -27,7 +31,7 @@ services:
 
 
     reverseproxy:
-        image: kujo01243/reverseproxy
+        image: reverseproxy
         container_name: reverseproxy
         networks:
             - m169_network
@@ -38,16 +42,17 @@ services:
         container_name: server-nginx
         depends_on:
             - reverseproxy
-        image: kujo01243/server-nginx
+        image: server-nginx
         networks:
             - m169_network
+
         restart: always
 
     apache:
         container_name: server-apache
         depends_on:
             - reverseproxy
-        image: kujo01243/server-apache
+        image: server-apache
         networks:
             - m169_network
         restart: always
