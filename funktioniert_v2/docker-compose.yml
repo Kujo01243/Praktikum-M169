@@ -1,0 +1,72 @@
+services:
+
+    prometheus:
+        container_name: prometheus
+        depends_on:
+            - reverseproxy
+        image: prometheus
+        networks:
+            - m169_network
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+        restart: always
+
+    grafana:
+        container_name: grafana
+        image: grafana/grafana
+        networks:
+            - m169_network
+        depends_on:
+          - prometheus
+
+
+
+
+###################################################
+
+
+
+    reverseproxy:
+        image: reverseproxy
+        container_name: reverseproxy
+        networks:
+            - m169_network
+        ports:
+            - 80:80
+        restart: always
+    server-nginx:
+        container_name: server-nginx
+        depends_on:
+            - reverseproxy
+        image: server-nginx
+        networks:
+            - m169_network
+        ports:
+            - 9112:9112
+        restart: always
+
+    server-apache:
+        container_name: server-apache
+        depends_on:
+            - reverseproxy
+        image: server-apache
+        networks:
+            - m169_network
+        restart: always
+    
+    nginx-exporter:
+        container_name: nginx-exporter
+        depends_on:
+            - server-nginx
+        image: nginx/nginx-prometheus-exporter
+        ports:
+            - 9113:9113
+        command: [ "-nginx.scrape-uri=http://server-nginx:9112/metrics" ]
+        networks:
+            - m169_network
+        restart: always
+
+
+networks:
+  m169_network:
+    name: m169_network
