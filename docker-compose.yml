@@ -19,13 +19,6 @@ services:
         depends_on:
           - prometheus
 
-
-
-
-###################################################
-
-
-
     reverseproxy:
         image: reverseproxy
         container_name: reverseproxy
@@ -65,7 +58,6 @@ services:
         networks:
             - m169_network
         restart: always
-
 
 networks:
   m169_network:
