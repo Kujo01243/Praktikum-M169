@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -109,6 +109,18 @@
           "instant": false,
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "builder",
+          "expr": "http_requests_total",
+          "hide": false,
+          "instant": false,
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "Panel Title",
@@ -123,13 +135,13 @@
     "list": []
   },
   "time": {
-    "from": "2023-06-17T14:26:09.528Z",
-    "to": "2023-06-17T15:12:49.144Z"
+    "from": "now-6h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Websitenaufrufe-nginx",
-  "uid": "a4f40c80-4706-487e-9b7c-c71d547a145d",
+  "title": "my-monitoring",
+  "uid": "f130cc5d-cd96-4470-8f3d-7187e2fb1842",
   "version": 1,
   "weekStart": ""
 }

@@ -1,3 +1,5 @@
 FROM grafana/grafana
-COPY datasources.yml /etc/grafana/provisioning/datasources/datasources.yml
-COPY Websitenaufrufe-nginx-1687013674961.json /var/lib/grafana/dashboards/Websitenaufrufe-nginx-1687013674961.json
+RUN mkdir -p /var/lib/grafana
+RUN mkdir -p /etc/grafana/provisioning
+COPY ./data /etc/grafana/provisioning/
+COPY ./ /var/lib/grafana
