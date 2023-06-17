@@ -50,17 +50,35 @@ services:
             - m169_network
         restart: always
     
-    nginx-exporter:
-        container_name: nginx-exporter
+    monitoring-server-nginx:
+        container_name: monitoring-server-nginx
         depends_on:
             - server-nginx
+            - reverseproxy
         image: nginx/nginx-prometheus-exporter
-        ports:
-            - 9113:9113
         command: [ "-nginx.scrape-uri=http://server-nginx:9112/metrics" ]
         networks:
             - m169_network
         restart: always
+    monitoring-reverseproxy:
+        container_name: monitoring-reverseproxy
+        depends_on:
+            - reverseproxy
+        image: nginx/nginx-prometheus-exporter
+        command: [ "-nginx.scrape-uri=http://reverseproxy:9112/metrics" ]
+        networks:
+            - m169_network
+        restart: always
+    monitoring-server-apache:
+        container_name: monitoring-server-apache
+        depends_on:
+            - reverseproxy
+            - server-apache
+        image: previousnext/apache-exporter
+        environment:
+        - APACHE_STATUS_URL=http://server-apache:80/metrics
+        networks:
+            - m169_network
 
 networks:
   m169_network:
