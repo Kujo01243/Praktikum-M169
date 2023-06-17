@@ -4,7 +4,7 @@ services:
         container_name: prometheus
         depends_on:
             - reverseproxy
-        image: rometheus
+        image: prometheus
         networks:
             - m169_network
         command:
