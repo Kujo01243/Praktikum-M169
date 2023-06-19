@@ -1,4 +1,4 @@
 FROM nginx:alpine
-COPY nginx.html /usr/share/nginx/html/index.html
+COPY server-nginx.html /usr/share/nginx/html/index.html
 COPY monitoring.conf /etc/nginx/nginx.conf
 
