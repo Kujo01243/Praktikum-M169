@@ -1,2 +1,4 @@
 # Praktikum-M169
-Hier sind alle Files und Configs für das Praktikum im Modul 169. Um die Container zu starten, muss man nur das docker-compose.yml starten. Um das Projekt auf einem lokalen PC auszuführen und ohne Domains laufen zu lassen empfehlen wir, dass das Hostfile auf dem lokalen Gerät dementsprechend angepasst wird, dass die Domains auf den local Host zeigen. Alle Container sind fertig schon zum abruf bereit aus der Github Container registry...
+Hier sind alle Files und Configs für das Praktikum im Modul 169.
+
+#dddddd
