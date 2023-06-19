@@ -35,7 +35,7 @@ services:
         container_name: server-nginx
         depends_on:
             - reverseproxy
-        image: ghcr.io/kujo01243/m169-server-nginx:v1
+        image: ghcr.io/kujo01243/m169-server-nginx:v2
         networks:
             - m169_network
         ports:
@@ -46,7 +46,7 @@ services:
         container_name: server-apache
         depends_on:
             - reverseproxy
-        image: ghcr.io/kujo01243/m169-server-apache:v1
+        image: ghcr.io/kujo01243/m169-server-apache:v2
         networks:
             - m169_network
         restart: always
