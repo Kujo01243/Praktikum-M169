@@ -5,6 +5,7 @@ Ziel des Projekts ist es, die Containerisierung mit Docker zu verstehen und selb
 ### Hinweis:
 Das Docker Compose startet NICHT die Container aus den Ordnern und kann komplett ALLEINSTEHEND verwendet werden, weil die Container schon gebuildet wurden und in die Github Container registry hochgeladen wurden. Um die Container bei sich auszuführen muss man also allein das Docker Compose starten. Es werden keine lokalen Files in Container gemountet oder als Volume angehängt.
 
+### Installation
 1.) Docker und Docker Compose installieren.
 
 2.) Docker Compose File an einem geeigneten Ort lokal abspeichern.
