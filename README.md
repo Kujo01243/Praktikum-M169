@@ -28,7 +28,7 @@ http://grafana.theil.es
 http://prometheus.theil.es
 
 ### Login Grafana
-Der Login Name und das Passwort sind im Docker-Compose File festgelegt und können auch dort nach Belieben angepasst werden.
+Der Login Name und das Passwort für Grafana (admin, Passwort123) sind im Docker-Compose File festgelegt und können auch dort nach Belieben angepasst werden. Ein Dashboard ist bereits erstellt.
 
 ### Hostfile
 Warum braucht es eine Anpassung am Hostfile? Eine Anpassung am Hostfile braucht es, weil alle Services über den Reverse Proxy laufen. Woher soll also der Reverse Proxy wissen, auf welchen Service man zugreift? Denn dieser läuft auf einer IP und auch nur auf einem Port. 
