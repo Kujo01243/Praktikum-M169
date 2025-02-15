@@ -1,3 +1,5 @@
+# This is an archive!
+As said in https://github.com/Kujo01243/Praktikum-M169/issues/1 you cannot run the code anymore. There is a missing Container.
 # Praktikum-M169
 ## Ziel des Projekts
 Ziel des Projekts ist es, die Containerisierung mit Docker zu verstehen und selbst anzuwenden, indem mehrere Container miteinander arbeiten und gemonitort werden. In diesem Repository sind alle Files, die benötigt werden, um die kleine Umgebung zu starten und auch zu verändern. Hier sind also alle Dockerfiles und Configs in ihrem Zustand, wo man sie noch nach seinen Wünschen verändern kann.
